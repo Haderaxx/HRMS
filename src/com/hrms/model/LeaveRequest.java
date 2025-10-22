@@ -1,29 +1,62 @@
 package com.hrms.model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
-public class LeaveRequest implements Serializable {
-    private int requestId;
+public class LeaveRequest {
+    private int leaveId;
     private int employeeId;
-    private LocalDate fromDate;
-    private LocalDate toDate;
-    private String status; // Pending, Approved, Rejected
+    private String leaveType;
+    private Date startDate;
+    private Date endDate;
+    private int daysRequested;
+    private String reason;
+    private String status;
+    private int approvedBy;
 
-    public LeaveRequest(int requestId, int employeeId, LocalDate fromDate, LocalDate toDate, String status) {
-        this.requestId = requestId;
+    public LeaveRequest(int leaveId, int employeeId, String leaveType, Date startDate, Date endDate, int daysRequested, String reason, String status) {
+        this.leaveId = leaveId;
         this.employeeId = employeeId;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.leaveType = leaveType;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.daysRequested = daysRequested;
+        this.reason = reason;
         this.status = status;
     }
 
-    public int getRequestId() { return requestId; }
+    // Getters and Setters
+    public int getLeaveId() { return leaveId; }
+    public void setLeaveId(int leaveId) { this.leaveId = leaveId; }
+
     public int getEmployeeId() { return employeeId; }
-    public LocalDate getFromDate() { return fromDate; }
-    public LocalDate getToDate() { return toDate; }
+    public void setEmployeeId(int employeeId) { this.employeeId = employeeId; }
+
+    public String getLeaveType() { return leaveType; }
+    public void setLeaveType(String leaveType) { this.leaveType = leaveType; }
+
+    public Date getStartDate() { return startDate; }
+    public void setStartDate(Date startDate) { this.startDate = startDate; }
+
+    public Date getEndDate() { return endDate; }
+    public void setEndDate(Date endDate) { this.endDate = endDate; }
+
+    public int getDaysRequested() { return daysRequested; }
+    public void setDaysRequested(int daysRequested) { this.daysRequested = daysRequested; }
+
+    public String getReason() { return reason; }
+    public void setReason(String reason) { this.reason = reason; }
+
     public String getStatus() { return status; }
-
     public void setStatus(String status) { this.status = status; }
-}
 
+    public int getApprovedBy() { return approvedBy; }
+    public void setApprovedBy(int approvedBy) { this.approvedBy = approvedBy; }
+
+    @Override
+    public String toString() {
+        return "LeaveRequest [leaveId=" + leaveId + ", employeeId=" + employeeId + 
+               ", leaveType=" + leaveType + ", startDate=" + startDate + 
+               ", endDate=" + endDate + ", daysRequested=" + daysRequested + 
+               ", reason=" + reason + ", status=" + status + "]";
+    }
+}
